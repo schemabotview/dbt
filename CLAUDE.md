@@ -5,27 +5,22 @@ live in the workspace [`CLAUDE.md`](../CLAUDE.md) — read that first; this file
 
 ## Status
 
-**COURSES 1-8 AUTHORED (2026-09-22)** — **78 sections · 78 scenes · 0 wavs**. Courses 1-5 are the
-shippable prefix (the whole core skill, live-able without the rest); `jinja`, `deployment` and
-`governance` are past it. Course 9 (`semantic`) is declared empty so the arc stays visible in the
-app; nothing authored points forward at it. `npm run build`, `tsc --noEmit` and `npm run check` are
-clean.
-
-Courses 1-7 (69 sections) were each reviewed as a rendered frame at 1920×1080 before being called
-done. **Course 8 (`governance`, 9 sections) has NOT been frame-reviewed** — it was authored after
-this file last recorded status, and the three checks passing is not the bar (see the workspace file:
-guards pass on frames that are wrong). Review it before it is called done.
+**ALL NINE COURSES AUTHORED (2026-09-22)** — **87 sections · 87 scenes · 0 wavs**. The spine in
+COURSE-PLAN.md is complete: every course declared is now authored, and no course is empty.
+`npm run build`, `tsc --noEmit` and `npm run check` are clean, and **every one of the eighty-seven
+sections has been reviewed as a rendered frame at 1920×1080** before being called done.
 
 **Still no audio**, so the section ORDER is still free to change. That ends the moment the first
-Colab pass runs — wav filenames pin section ids.
+Colab pass runs — wav filenames pin section ids. This is now the main thing standing between the
+repo and a finished concept.
 
 **Live at `graphl.in/dbt/`** — repo `schemabotview/dbt`, deployed by `.github/workflows/deploy.yml`
 on push to `main`. The repo previously held this concept's notebook **quarry**; on 2026-09-22 the
-owner chose to force-push the app over it, and the quarry's Pages `build_type` was switched from
-`legacy` to `workflow` so the Actions deploy is what serves. There is still **no catalog entry in
+owner chose to force-push the app over it, and Pages `build_type` was switched from `legacy` to
+`workflow` so the Actions deploy is what serves. There is still **no catalog entry in
 `../ui-graphl`** — add one now that this deploys.
 
-**Audio is un-generated but wired up.** `scripts/audio-manifest.json` (78 entries) is committed, and
+**Audio is un-generated but wired up.** `scripts/audio-manifest.json` (87 entries) is committed, and
 `scripts/colab_generate_audio.ipynb` has been retargeted from `../snowflake` to this repo. Re-run
 `npm run gen:audio` and commit the json whenever narration changes — the notebook only sees
 committed text.
@@ -54,14 +49,15 @@ the materializations, the incremental strategies, test types).
 | 5 | `testing` | Tests & Contracts | 10 | **authored, no audio** |
 | 6 | `jinja` | Jinja, Macros & Packages | 10 | **authored, no audio** |
 | 7 | `deployment` | Running dbt in Production | 10 | **authored, no audio** |
-| 8 | `governance` | Docs, Ownership & Mesh | 9 | **authored, not frame-reviewed** |
-| 9 | `semantic` | Semantic Layer & Beyond | 9 | empty |
+| 8 | `governance` | Docs, Ownership & Mesh | 9 | **authored, no audio** |
+| 9 | `semantic` | Semantic Layer & Beyond | 9 | **authored, no audio** |
 
 The per-section plot, and the judgment calls behind the grouping, live in
 [`COURSE-PLAN.md`](./COURSE-PLAN.md).
 
-**Ships as a prefix.** Courses 1-5 (49 sections) are the core skill and can go live before 6-9
-exist. That only holds because of the rules below.
+**Shipped as a prefix.** Courses 1-5 (49 sections) are the core skill and were authored so they
+could go live before 6-9 existed. All nine now exist, but the rules below are what made that
+possible — and they are what keeps a reorder cheap until the wavs land.
 
 ## Two decisions that run through every course
 
