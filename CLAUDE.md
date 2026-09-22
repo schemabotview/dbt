@@ -5,23 +5,30 @@ live in the workspace [`CLAUDE.md`](../CLAUDE.md) — read that first; this file
 
 ## Status
 
-**COURSES 1-7 AUTHORED (2026-09-22)** — **69 sections · 69 scenes · 0 wavs**. Courses 1-5 are the
-shippable prefix (the whole core skill, live-able without the rest); `jinja` and `deployment` are
-past it. Courses 8-9 are declared empty so the arc stays visible in the app; nothing authored points
-forward at them. `npm run build`, `tsc --noEmit` and `npm run check` are clean, and every one of the
-sixty-nine sections was reviewed as a rendered frame at 1920×1080 before it was called done.
+**COURSES 1-8 AUTHORED (2026-09-22)** — **78 sections · 78 scenes · 0 wavs**. Courses 1-5 are the
+shippable prefix (the whole core skill, live-able without the rest); `jinja`, `deployment` and
+`governance` are past it. Course 9 (`semantic`) is declared empty so the arc stays visible in the
+app; nothing authored points forward at it. `npm run build`, `tsc --noEmit` and `npm run check` are
+clean.
+
+Courses 1-7 (69 sections) were each reviewed as a rendered frame at 1920×1080 before being called
+done. **Course 8 (`governance`, 9 sections) has NOT been frame-reviewed** — it was authored after
+this file last recorded status, and the three checks passing is not the bar (see the workspace file:
+guards pass on frames that are wrong). Review it before it is called done.
 
 **Still no audio**, so the section ORDER is still free to change. That ends the moment the first
 Colab pass runs — wav filenames pin section ids.
 
-**NOT a git repo yet, and pushed nowhere.** It also has no catalog entry in `../ui-graphl` — adding
-one publishes a dead link until this deploys, so that is deliberately deferred. The GitHub repo name
-is an open question the owner should settle (`dbt` is a plausible name but so is `dbt-content`; see
-the workspace file on how `docker`/`kubernetes`/`java` got stuck on exactly this).
+**Live at `graphl.in/dbt/`** — repo `schemabotview/dbt`, deployed by `.github/workflows/deploy.yml`
+on push to `main`. The repo previously held this concept's notebook **quarry**; on 2026-09-22 the
+owner chose to force-push the app over it, and the quarry's Pages `build_type` was switched from
+`legacy` to `workflow` so the Actions deploy is what serves. There is still **no catalog entry in
+`../ui-graphl`** — add one now that this deploys.
 
-**No audio.** `scripts/colab_generate_audio.ipynb` is copied from `../snowflake` and still targets
-that repo — **retarget it before the first Colab pass**, and run `npm run gen:audio` to commit
-`scripts/audio-manifest.json` (the notebook only sees committed text).
+**Audio is un-generated but wired up.** `scripts/audio-manifest.json` (78 entries) is committed, and
+`scripts/colab_generate_audio.ipynb` has been retargeted from `../snowflake` to this repo. Re-run
+`npm run gen:audio` and commit the json whenever narration changes — the notebook only sees
+committed text.
 
 ## What this is
 
@@ -47,7 +54,7 @@ the materializations, the incremental strategies, test types).
 | 5 | `testing` | Tests & Contracts | 10 | **authored, no audio** |
 | 6 | `jinja` | Jinja, Macros & Packages | 10 | **authored, no audio** |
 | 7 | `deployment` | Running dbt in Production | 10 | **authored, no audio** |
-| 8 | `governance` | Docs, Ownership & Mesh | 9 | empty |
+| 8 | `governance` | Docs, Ownership & Mesh | 9 | **authored, not frame-reviewed** |
 | 9 | `semantic` | Semantic Layer & Beyond | 9 | empty |
 
 The per-section plot, and the judgment calls behind the grouping, live in
