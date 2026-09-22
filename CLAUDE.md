@@ -5,14 +5,17 @@ live in the workspace [`CLAUDE.md`](../CLAUDE.md) — read that first; this file
 
 ## Status
 
-**ALL NINE COURSES AUTHORED (2026-09-22)** — **87 sections · 87 scenes · 0 wavs**. The spine in
+**ALL NINE COURSES AUTHORED (2026-09-22)** — **87 sections · 87 scenes**. The spine in
 COURSE-PLAN.md is complete: every course declared is now authored, and no course is empty.
 `npm run build`, `tsc --noEmit` and `npm run check` are clean, and **every one of the eighty-seven
 sections has been reviewed as a rendered frame at 1920×1080** before being called done.
 
-**Still no audio**, so the section ORDER is still free to change. That ends the moment the first
-Colab pass runs — wav filenames pin section ids. This is now the main thing standing between the
-repo and a finished concept.
+**Audio has started.** The first Colab pass ran on 2026-09-22 and pushed all ten `foundations`
+wavs straight from the VM. Courses 2-9 have none yet.
+
+⚠️ **`foundations` section order is now FROZEN** — its wav filenames are pinned to its section ids,
+so reordering or renaming a section there orphans a wav. The other eight courses are still free to
+change until their own Colab pass runs.
 
 **Live at `graphl.in/dbt/`** — repo `schemabotview/dbt`, deployed by `.github/workflows/deploy.yml`
 on push to `main`. The repo previously held this concept's notebook **quarry**; on 2026-09-22 the
@@ -42,7 +45,7 @@ the materializations, the incremental strategies, test types).
 
 | # | id | Title | Secs | State |
 |--:|----|-------|-----:|-------|
-| 1 | `foundations` | What dbt Is | 10 | **authored, no audio** |
+| 1 | `foundations` | What dbt Is | 10 | **authored · audio done · ORDER FROZEN** |
 | 2 | `models` | Models, ref and the DAG | 10 | **authored, no audio** |
 | 3 | `materializations` | Materializations | 10 | **authored, no audio** |
 | 4 | `sources` | Sources, Seeds & Snapshots | 9 | **authored, no audio** |
