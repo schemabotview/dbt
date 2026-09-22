@@ -1,0 +1,11 @@
+/* dbt's design surface — the three tokens @graphlearning/shell leaves to the repo.
+   Imported AFTER the shell's stylesheet in main.tsx, so these win the cascade.
+   --brand is dbt's own coral orange. The data group's warm end is crowded (spark #e25a1c,
+   databricks #ff3621, aws #f0902f), and this sits between them — it is kept because brand fidelity
+   is the rule every other repo follows; it reads lighter and pinker than both neighbours.
+   --brand is WARM, so the slide's `###` counter tone is cool, the same inversion aws/linux/spark use. */
+:root {
+  --brand: #ff694a; /* dbt coral — eyebrow, links, the catalog card tint */
+  --brand-hover: #ff8f78; /* lighter coral — the eyebrow's hover state */
+  --accent-2: #5cc0cf; /* cool counter tone to --brand: the slide's `###` subheading */
+}

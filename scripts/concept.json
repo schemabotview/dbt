@@ -1,0 +1,8 @@
+{
+  "_comment": "Per-repo publishing identity, read by @graphlearning/shell's thumb / gen-descriptions scripts. Env vars (CONCEPT, SITE, APP_PATH, HASHTAGS, PANEL_BG) still override.",
+  "concept": "dbt",
+  "site": "https://graphl.in",
+  "appPath": "/dbt",
+  "hashtags": "#dbt #AnalyticsEngineering #DataEngineering #ELT #dbtCore #ModernDataStack #SQL #DataModeling #TechEducation",
+  "panelBg": "radial-gradient(118% 104% at 70% 34%, #ff694a 0%, #8f2a18 44%, #1f0a06 100%)"
+}
