@@ -10,12 +10,13 @@ COURSE-PLAN.md is complete: every course declared is now authored, and no course
 `npm run build`, `tsc --noEmit` and `npm run check` are clean, and **every one of the eighty-seven
 sections has been reviewed as a rendered frame at 1920×1080** before being called done.
 
-**Audio has started.** The first Colab pass ran on 2026-09-22 and pushed all ten `foundations`
-wavs straight from the VM. Courses 2-9 have none yet.
+**PUBLISH SET COMPLETE (2026-09-23)** — **87 wavs · 9 MP4s · 9 PNGs · 9 TXTs.** Colab generated
+every course's narration over 2026-09-22/23, committing each wav back from the VM, and all nine
+courses are recorded at 3840×2160 → `scripts/out/<course>.mp4`: **123 min 40 s, 596 MB**, h264/aac.
+No section fell back to silence — every segment rode a real wav. Remaining: upload.
 
-⚠️ **`foundations` section order is now FROZEN** — its wav filenames are pinned to its section ids,
-so reordering or renaming a section there orphans a wav. The other eight courses are still free to
-change until their own Colab pass runs.
+⚠️ **EVERY course's section order is now FROZEN** — wav filenames are pinned to section ids, so
+reordering or renaming any section in any course orphans a wav. Nothing here is free to move now.
 
 **Live at `graphl.in/dbt/`** — repo `schemabotview/dbt`, deployed by `.github/workflows/deploy.yml`
 on push to `main`. The repo previously held this concept's notebook **quarry**; on 2026-09-22 the
@@ -23,10 +24,30 @@ owner chose to force-push the app over it, and Pages `build_type` was switched f
 `workflow` so the Actions deploy is what serves. There is still **no catalog entry in
 `../ui-graphl`** — add one now that this deploys.
 
-**Audio is un-generated but wired up.** `scripts/audio-manifest.json` (87 entries) is committed, and
-`scripts/colab_generate_audio.ipynb` has been retargeted from `../snowflake` to this repo. Re-run
+**Audio.** `scripts/audio-manifest.json` (87 entries) is committed, and
+`scripts/colab_generate_audio.ipynb` is retargeted from `../snowflake` to this repo. Re-run
 `npm run gen:audio` and commit the json whenever narration changes — the notebook only sees
-committed text.
+committed text, and it commits each wav back from the Colab VM one commit per file.
+
+**PUBLISH ASSETS** — `scripts/out/<course>.png` (nine 1280×720 thumbnails, scene left and the brand
+panel right from `concept.json`'s `panelBg`) and `<course>.txt` (nine descriptions). Chapter timings
+were cross-checked against the MP4s: every list starts at 0:00, ascends strictly, and ends inside
+its video. `scripts/titles.json` holds the search-facing titles the thumbnail header and the
+description headline share — deliberately NOT leading with "dbt", so the headline reads
+"<title> · dbt" without stammering.
+
+Seven thumbnails shoot the course's FIRST section (the script's default). Two do not, and the
+override has to be repeated by hand on any re-shoot: **`models --section 4`** (the DAG scene — the
+first section is a narrow code card adrift in dead space) and **`semantic --section 1`** (the
+semantic_models yml — the first section's scene leaves the bottom third empty).
+
+`scripts/out/` and `scripts/segments/` are gitignored, so **the whole publish set — 9 mp4 + 9 png +
+9 txt — exists only on this machine. Back it up before anything cleans that directory.**
+
+**Capture notes.** The recorder spawns its own dev server; set `APP_URL` to reuse one (worth doing
+for a `thumb` run across all nine). Finished segments cache under `scripts/segments/<course>`, so a
+re-run resumes rather than starting over. Capture is real-time — the full set took ~6 h wall clock,
+interleaved with waiting on Colab — so run it under `caffeinate -dimsu` on AC power.
 
 ## What this is
 
@@ -45,22 +66,23 @@ the materializations, the incremental strategies, test types).
 
 | # | id | Title | Secs | State |
 |--:|----|-------|-----:|-------|
-| 1 | `foundations` | What dbt Is | 10 | **authored · audio done · ORDER FROZEN** |
-| 2 | `models` | Models, ref and the DAG | 10 | **authored, no audio** |
-| 3 | `materializations` | Materializations | 10 | **authored, no audio** |
-| 4 | `sources` | Sources, Seeds & Snapshots | 9 | **authored, no audio** |
-| 5 | `testing` | Tests & Contracts | 10 | **authored, no audio** |
-| 6 | `jinja` | Jinja, Macros & Packages | 10 | **authored, no audio** |
-| 7 | `deployment` | Running dbt in Production | 10 | **authored, no audio** |
-| 8 | `governance` | Docs, Ownership & Mesh | 9 | **authored, no audio** |
-| 9 | `semantic` | Semantic Layer & Beyond | 9 | **authored, no audio** |
+| 1 | `foundations` | What dbt Is | 10 | **published set ✓** |
+| 2 | `models` | Models, ref and the DAG | 10 | **published set ✓** |
+| 3 | `materializations` | Materializations | 10 | **published set ✓** |
+| 4 | `sources` | Sources, Seeds & Snapshots | 9 | **published set ✓** |
+| 5 | `testing` | Tests & Contracts | 10 | **published set ✓** |
+| 6 | `jinja` | Jinja, Macros & Packages | 10 | **published set ✓** |
+| 7 | `deployment` | Running dbt in Production | 10 | **published set ✓** |
+| 8 | `governance` | Docs, Ownership & Mesh | 9 | **published set ✓** |
+| 9 | `semantic` | Semantic Layer & Beyond | 9 | **published set ✓** |
 
 The per-section plot, and the judgment calls behind the grouping, live in
 [`COURSE-PLAN.md`](./COURSE-PLAN.md).
 
 **Shipped as a prefix.** Courses 1-5 (49 sections) are the core skill and were authored so they
-could go live before 6-9 existed. All nine now exist, but the rules below are what made that
-possible — and they are what keeps a reorder cheap until the wavs land.
+could go live before 6-9 existed. All nine now exist — and the rules below are what made that
+possible. The reorder window they bought is now CLOSED: every course has wavs, so every section id
+is pinned. The rules still bind anything newly authored.
 
 ## Two decisions that run through every course
 

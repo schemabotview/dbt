@@ -1,0 +1,12 @@
+{
+  "_comment": "Curated publish titles (YouTube title + thumbnail header) per course, keyed by course id. An override for the registry's in-app narrative course.title — the in-app title is narrative ('What dbt Is'), this one is search-facing. Read by gen-descriptions.mjs and thumb.mjs. Deliberately does NOT lead with 'dbt', so the composed headline reads '<title> · dbt' without stammering.",
+  "foundations": "ELT, dbt Core & Your First Run",
+  "models": "Models, ref() & the DAG",
+  "materializations": "Views, Tables & Incremental Models",
+  "sources": "Sources, Seeds & Snapshots",
+  "testing": "Tests, Contracts & Unit Tests",
+  "jinja": "Jinja, Macros & Packages",
+  "deployment": "Jobs, State, defer & Slim CI",
+  "governance": "Docs, Exposures, Access & Mesh",
+  "semantic": "Semantic Layer, Metrics & Cost"
+}
